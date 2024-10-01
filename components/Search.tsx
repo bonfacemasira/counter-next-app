@@ -16,7 +16,7 @@ const Search: React.FC<CounterSearchProps> = ({
       count.toString().includes(searchQuery)
     );
     setFilteredCounterList(filteredList);
-  }, 3000);
+  }, 500);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = e.target.value;
