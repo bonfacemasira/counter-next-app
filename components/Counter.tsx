@@ -52,29 +52,25 @@ const Counter = () => {
       <div className="buttons">
         <Button
           style={{
-            fontSize: "60%",
             position: "relative",
             top: "30vh",
             marginRight: "5px",
-            backgroundColor: "red",
-            color: "white",
           }}
+          variant={"destructive"}
           onClick={handleCounterMinus}
         >
-          <Minus className="mr-2 h-6 w-6" /> Decrement
+          <Minus className="mr-2 h-4 w-4" /> Decrement
         </Button>
         <Button
           style={{
-            fontSize: "60%",
             position: "relative",
             top: "30vh",
             marginLeft: "5px",
             backgroundColor: "green",
-            color: "white",
           }}
           onClick={handleCounterPlus}
         >
-          <Plus className="mr-2 h-6 w-6" /> Increment
+          <Plus className="mr-2 h-4 w-4" /> Increment
         </Button>
       </div>
       <Search

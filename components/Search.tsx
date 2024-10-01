@@ -16,7 +16,7 @@ const Search: React.FC<CounterSearchProps> = ({
       count.toString().includes(searchQuery)
     );
     setFilteredCounterList(filteredList);
-  }, 3000);
+  }, 500);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = e.target.value;
@@ -30,8 +30,10 @@ const Search: React.FC<CounterSearchProps> = ({
       onChange={handleSearch}
       style={{
         marginTop: "20px",
-        padding: "10px",
-        fontSize: "100%",
+        padding: "5px 10px ",
+        border: "1px solid #ccc",
+        borderRadius: "5px",
+        fontWeight: "200",
       }}
     />
   );
