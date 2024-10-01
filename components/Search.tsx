@@ -30,8 +30,10 @@ const Search: React.FC<CounterSearchProps> = ({
       onChange={handleSearch}
       style={{
         marginTop: "20px",
-        padding: "10px",
-        fontSize: "100%",
+        padding: "5px 10px ",
+        border: "1px solid #ccc",
+        borderRadius: "5px",
+        fontWeight: "200",
       }}
     />
   );
