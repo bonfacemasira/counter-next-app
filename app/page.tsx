@@ -1,4 +1,3 @@
-import Search from "@/components/Search";
 import dynamic from "next/dynamic";
 const Counter = dynamic(() => import("@/components/Counter"), {
   loading: () => <p>Loading...</p>,
