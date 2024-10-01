@@ -2,19 +2,28 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Minus, Plus } from "lucide-react";
+import Search from "./Search";
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [counterList, setCounterList] = useState<number[]>([]);
+  const [filteredCounterList, setFilteredCounterList] = useState<number[]>([]);
+
   const handleCounterPlus = () => {
     setCounter(counter + 1);
     setCounterList([...counterList, counter]);
+    setFilteredCounterList([...counterList, counter]);
   };
 
   const handleCounterMinus = () => {
     setCounter(counter - 1);
     setCounterList([...counterList, counter]);
+    setFilteredCounterList([...counterList, counter]);
   };
+
+  React.useEffect(() => {
+    setFilteredCounterList(counterList);
+  }, [counterList]);
 
   return (
     <div
@@ -45,7 +54,7 @@ const Counter = () => {
           style={{
             fontSize: "60%",
             position: "relative",
-            top: "20vh",
+            top: "30vh",
             marginRight: "5px",
             backgroundColor: "red",
             color: "white",
@@ -58,7 +67,7 @@ const Counter = () => {
           style={{
             fontSize: "60%",
             position: "relative",
-            top: "20vh",
+            top: "30vh",
             marginLeft: "5px",
             backgroundColor: "green",
             color: "white",
@@ -68,14 +77,17 @@ const Counter = () => {
           <Plus className="mr-2 h-6 w-6" /> Increment
         </Button>
       </div>
+      <Search
+        counterList={counterList}
+        setFilteredCounterList={setFilteredCounterList}
+      />
       <div>
-        {counterList.map((count, index) => (
+        {filteredCounterList.map((count, index) => (
           <div
             key={index}
             style={{
               fontSize: "100%",
               display: "inline",
-              marginTop: "20px",
             }}
           >
             {count},
