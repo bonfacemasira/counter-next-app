@@ -173,6 +173,13 @@ To set up a CI/CD pipeline for this project, follow these steps:
    GitHub Actions for automation of tests and builds.
    Vercel or Netlify for easy deployment.
 
+## Tools Used:
+
+1. GitHub: For version control.
+2. Node.js: For running the frontend application.
+3. Jenkins: For CI/CD pipeline orchestration.
+4. SSH: For deploying the application on a remote server (customizable based on your needs).
+
 ## How to Use
 
 - <b>Counter Component: </b>Increment or decrement the counter using buttons. The current count and history of counts are displayed.
