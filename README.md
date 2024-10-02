@@ -60,6 +60,100 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+<!-- ## CI/CD Pipeline using Jenkins
+
+To set up a CI/CD pipeline for this project using Jenkins, follow these steps:
+
+1. Set Up Jenkins Server
+   - Install Jenkins on a server or use a service like Jenkins on AWS EC2.
+   - Install the necessary Jenkins plugins:
+     <b>NodeJS Plugin: </b>For running Node.js scripts.
+     <b>Git Plugin: </b>For version control.
+     <b>SSH or Publish Over SSH Plugin: </b>For deployment if needed.
+2. Create a Jenkins Pipeline
+   - Navigate to your Jenkins dashboard and create a new Pipeline project.
+   - Configure the pipeline to pull your code from GitHub by adding your GitHub repository link.
+3. Configure Jenkinsfile
+   Create a Jenkinsfile at the root of your project with the following content:
+
+```groovy
+pipeline {
+agent any
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Install the necessary dependencies
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Build the Next.js application
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Run the tests (if tests are set up)
+                    sh 'npm test'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Example: Use SSH to deploy the application (customize as needed)
+                    sh '''
+                    ssh user@your-server "
+                    cd /path/to/your/project &&
+                    git pull &&
+                    npm install &&
+                    npm run build &&
+                    pm2 restart your-app"
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'CI/CD pipeline finished.'
+        }
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+
+}
+```
+
+4. Set Up Webhooks
+   - Go to your GitHub repository settings.
+   - In the Webhooks section, add a webhook that triggers Jenkins on every push event:
+     Payload URL: http://<your-jenkins-server>/github-webhook/
+     Content type: application/json
+     Events: Just the push event.
+5. Build and Deploy
+   - When you push your code to GitHub, the Jenkins pipeline will automatically:
+   - Pull the latest code.
+   - Install dependencies.
+   - Build the Next.js project.
+   - Run tests (if any).
+   - Deploy the application (using SSH or other deployment methods). -->
+
 ## CI/CD Pipeline
 
 To set up a CI/CD pipeline for this project, follow these steps:
@@ -98,3 +192,7 @@ If you'd like to contribute, please follow these steps:
 ## License
 
 This project is open-source and available under the MIT License.
+
+```
+
+```
